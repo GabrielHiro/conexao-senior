@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexão Sênior - Tecnologia com Paciência e Afeto</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👵</text></svg>">
+
+    <style>
+        /* Estilos personalizados para complementar o Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .gradient-overlay {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0.6));
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+
+    <!-- Cabeçalho -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-teal-600">Conexão Sênior</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#servicos" class="text-gray-600 hover:text-teal-600">Nossos Serviços</a>
+                <a href="#historia" class="text-gray-600 hover:text-teal-600">Nossa História</a>
+                <a href="#depoimentos" class="text-gray-600 hover:text-teal-600">Depoimentos</a>
+                <a href="#contato" class="bg-amber-500 text-white font-bold py-2 px-4 rounded-full hover:bg-amber-600 transition duration-300">Fale Conosco</a>
+            </div>
+            <button class="md:hidden text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Seção Hero -->
+    <main>
+        <section class="hero-bg">
+            <div class="gradient-overlay">
+                <div class="container mx-auto px-6 py-24 md:py-32 flex flex-col items-start">
+                    <div class="w-full md:w-1/2">
+                        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">A tecnologia pode ser sua aliada. E nós vamos te mostrar como.</h1>
+                        <p class="mt-4 text-lg text-gray-700">Com paciência, segurança e um ensino pensado para você, a Conexão Sênior abre as portas do mundo digital para que você se conecte, aprenda e se divirta sem medo.</p>
+                        <a href="#contato" class="cta-button mt-8 inline-block bg-teal-600 text-white font-bold text-lg py-4 px-8 rounded-full shadow-lg hover:bg-teal-700">Quero aprender agora!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Proposta de Valor -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800">Sua autonomia e conexão com o mundo, de volta.</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg">Nós traduzimos o mundo digital de forma <span class="text-teal-600 font-semibold">paciente, humana e segura</span>, para que a tecnologia seja uma ponte para o mundo, e não um muro.</p>
+                <div class="mt-12 grid md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                        <div class="text-5xl mb-4 text-teal-500">🤝</div>
+                        <h3 class="text-xl font-bold mb-2">Paciência Infinita</h3>
+                        <p>Respeitamos seu tempo. Cada dúvida é importante e explicamos quantas vezes for necessário, sempre com um sorriso.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                        <div class="text-5xl mb-4 text-amber-500">🛡️</div>
+                        <h3 class="text-xl font-bold mb-2">Segurança em 1º Lugar</h3>
+                        <p>Aprenda a identificar golpes, criar senhas fortes e navegar na internet com total confiança e proteção.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                        <div class="text-5xl mb-4 text-rose-500">❤️</div>
+                        <h3 class="text-xl font-bold mb-2">Ensino Humanizado</h3>
+                        <p>Mais que aulas, criamos uma conexão. Entendemos seus medos e celebramos cada nova conquista com você.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Serviços -->
+        <section id="servicos" class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800">Nossos Serviços</h2>
+                    <p class="mt-2 text-lg">Soluções personalizadas para suas necessidades.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="[Imagem de uma professora ensinando uma aluna sênior em um tablet]" class="rounded-lg shadow-xl">
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-teal-700">Aulas Particulares</h3>
+                            <p class="mt-2">No conforto da sua casa ou online. Aprenda no seu ritmo sobre WhatsApp, redes sociais, aplicativos de banco, compras online e muito mais. O foco é 100% em você!</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-teal-700">Workshops em Grupo</h3>
+                            <p class="mt-2">Pequenas turmas para um aprendizado dinâmico e interativo. Ideal para condomínios e clubes. Troque experiências e aprenda junto com amigos.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-teal-700">Plano de Suporte Contínuo</h3>
+                            <p class="mt-2">"Tia Ju, me ajuda aqui!" Nosso plano de assinatura para tirar dúvidas rápidas do dia a dia por telefone ou mensagem. É como ter um especialista em tecnologia sempre à disposição.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção Nossa História -->
+        <section id="historia" class="py-16 bg-teal-50">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div class="order-2 md:order-1">
+                        <h2 class="text-3xl font-bold text-gray-800">Como tudo começou...</h2>
+                        <p class="mt-4 text-lg">A Conexão Sênior nasceu da experiência pessoal da fundadora, Juliana. Ao ver a frustração de seus avós com tarefas simples, como uma videochamada, ela percebeu que a tecnologia estava isolando quem mais amava.</p>
+                        <p class="mt-4 text-lg">O que começou como uma ajuda voluntária aos amigos dos avós, se transformou em um negócio movido por gratidão e pelo desejo de "traduzir" o mundo digital para o público 60+. Hoje, nossa missão é levar essa mesma paciência e cuidado a todos os nossos alunos em Sorocaba.</p>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <img src="https://images.unsplash.com/photo-1606914501438-1b3924f7a752?q=80&w=1974&auto=format&fit=crop" alt="[Imagem de Juliana, a fundadora, sorrindo]" class="rounded-full shadow-xl mx-auto w-64 h-64 md:w-80 md:h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Depoimentos -->
+        <section id="depoimentos" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800">O que nossos alunos dizem</h2>
+                    <p class="mt-2 text-lg">A confiança e a alegria deles é nossa maior recompensa.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Depoimento 1 -->
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2071&auto=format&fit=crop" class="w-20 h-20 rounded-full mx-auto -mt-12 border-4 border-white object-cover" alt="[Foto do Sr. Carlos]">
+                        <p class="mt-4 italic">"Eu tinha medo até de ligar o computador. Hoje, falo com meus netos na Austrália por vídeo toda semana. Perdi o medo e ganhei o mundo."</p>
+                        <p class="mt-4 font-bold text-teal-600">- Carlos B., 72 anos</p>
+                    </div>
+                    <!-- Depoimento 2 -->
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1541823709867-1b206113eafd?q=80&w=1964&auto=format&fit=crop" class="w-20 h-20 rounded-full mx-auto -mt-12 border-4 border-white object-cover" alt="[Foto da Sra. Helena]">
+                        <p class="mt-4 italic">"O pessoal da Conexão Sênior tem uma paciência de santo! Aprendi a usar o app do banco e agora resolvo tudo sem sair de casa. É uma liberdade que não tem preço."</p>
+                        <p class="mt-4 font-bold text-teal-600">- Helena M., 68 anos</p>
+                    </div>
+                    <!-- Depoimento 3 -->
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop" class="w-20 h-20 rounded-full mx-auto -mt-12 border-4 border-white object-cover" alt="[Foto do Sr. Roberto]">
+                        <p class="mt-4 italic">"Contratei para minha mãe e foi a melhor decisão. Ela está mais segura, mais feliz e conectada. E eu fico com o coração em paz."</p>
+                        <p class="mt-4 font-bold text-teal-600">- Roberto F., (filho)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Contato -->
+        <section id="contato" class="py-20 bg-teal-700 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold">Dê o primeiro passo para uma vida mais conectada.</h2>
+                <p class="mt-4 text-lg max-w-2xl mx-auto">Sem compromisso! Vamos conversar sobre como podemos te ajudar. Ligue ou mande uma mensagem. Será um prazer falar com você!</p>
+                <div class="mt-8">
+                    <a href="https://wa.me/5515999999999" target="_blank" class="cta-button inline-block bg-amber-500 text-white font-bold text-lg py-4 px-8 rounded-full shadow-lg hover:bg-amber-600">
+                        <span class="inline-flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                               <path d="M10.2 3.4A6.6 6.6 0 0 0 3.6 10c0 1.7.6 3.3 1.8 4.6l-1.3 4.6 4.8-1.3a6.6 6.6 0 0 0 9.8-8.6A6.6 6.6 0 0 0 10.2 3.4zM15 11.4c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.8s-.3.2-.5.1c-.2-.1-.9-.3-1.8-1.1s-1.4-1.8-1.7-2.1c-.2-.3-.1-.4 0-.5l.4-.5c.1-.1.2-.2.3-.4.1-.1 0-.2 0-.3L7.1 6.3c-.1-.2-.2-.2-.4-.2h-.4c-.2 0-.4.1-.5.3s-.7.7-.7 1.6.7 1.8 1.1 2.4c.4.6 1.4 2.2 3.3 3.1.5.2.8.3 1.1.4.4.1.7 0 1-.1.3-.2.6-.8.7-1s.1-.3 0-.4l-1.1-.5z" />
+                            </svg>
+                            Falar no WhatsApp
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Conexão Sênior</h3>
+                    <p class="text-gray-400">Tecnologia com paciência e afeto em Sorocaba.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Instagram</a>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2024 Conexão Sênior. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
