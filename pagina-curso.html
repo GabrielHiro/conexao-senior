@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso: WhatsApp para Iniciantes - Conexão Sênior</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Aprenda WhatsApp de forma simples e segura. Curso online da Conexão Sênior especialmente desenvolvido para pessoas 60+.">
+    <meta name="keywords" content="curso whatsapp, whatsapp para idosos, tecnologia terceira idade, aulas online">
+    <meta name="author" content="Conexão Sênior">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Curso: WhatsApp para Iniciantes - Conexão Sênior">
+    <meta property="og:description" content="Aprenda WhatsApp de forma simples e segura com a Conexão Sênior">
+    <meta property="og:image" content="https://conexaosenior.com.br/curso-whatsapp.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Preload resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@500;700&display=swap" as="style">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+
+    <style>
+        :root {
+            --primary-color: #0D9488;
+            --secondary-color: #F59E0B;
+            --success-color: #10B981;
+            --accent-color: #14B8A6;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Lora', serif;
+        }
+        
+        /* Video responsivo */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Progress bar */
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            height: 8px;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        /* Task cards */
+        .task-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .task-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-completed {
+            border-left-color: var(--success-color);
+            background-color: #f0fdf4;
+        }
+        
+        /* Loading animations */
+        .loading {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Quiz styles */
+        .quiz-option {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .quiz-option:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .quiz-option.selected {
+            background-color: #e6fffa;
+            border-color: var(--primary-color);
+        }
+        
+        .quiz-option.correct {
+            background-color: #d1fae5;
+            border-color: var(--success-color);
+        }
+        
+        .quiz-option.incorrect {
+            background-color: #fee2e2;
+            border-color: #ef4444;
+        }
+        
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .badge-beginner {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .badge-completed {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        
+        /* Accordion */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.open {
+            max-height: 500px;
+        }
+        
+        /* Focus styles para acessibilidade */
+        .focus-visible:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .video-container {
+                margin: 0 -1rem;
+                border-radius: 0;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-teal-600 focus-visible">Conexão Sênior</a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-gray-600 hover:text-teal-600 focus-visible">Voltar ao Site</a>
+                <div class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">
+                    📱 Curso WhatsApp
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 max-w-6xl">
+        <!-- Course Header -->
+        <section class="mb-12 loading">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="badge badge-beginner">
+                                🌟 Iniciante
+                            </span>
+                            <span class="text-gray-500 text-sm">Duração: 45 minutos</span>
+                        </div>
+                        <h1 class="text-4xl font-bold text-gray-800 mb-4">WhatsApp para Iniciantes</h1>
+                        <p class="text-lg text-gray-600 mb-6">Aprenda a usar o WhatsApp de forma simples e segura. Desde o básico até conversas em grupo, tudo explicado com paciência e carinho.</p>
+                        
+                        <!-- Progress -->
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-700">Progresso do Curso</span>
+                                <span class="text-sm text-gray-500" id="progress-text">0% concluído</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar w-0" id="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ml-8 text-center">
+                        <div class="w-24 h-24 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mb-3">
+                            📱
+                        </div>
+                        <p class="text-sm text-gray-600">Professora Kathleen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Main Content -->
+            <div class="lg:col-span-2 space-y-8">
+                
+                <!-- Video Lesson -->
+                <section class="bg-white rounded-xl shadow-lg p-8 loading">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center">
+                        🎬 Aula 1: Primeiros Passos no WhatsApp
+                    </h2>
+                    
+                    <div class="video-container mb-6">
+                        <!-- Placeholder para vídeo real - pode ser YouTube, Vimeo, etc. -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Aula: Baixando e Configurando o WhatsApp</h3>
+                                <p class="text-teal-100">Clique para assistir à videoaula</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <button class="bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 focus-visible transition-colors" id="play-video">
+                                ▶️ Assistir Aula
+                            </button>
+                            <button class="text-gray-600 hover:text-teal-600 focus-visible">
+                                📝 Anotações
+                            </button>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            ⏱️ 12:30 min
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lesson Content -->
+                <section class="bg-white rounded-xl shadow-lg p-8 loading">
+                    <h2 class="text-2xl font-bold mb-6">📖 Conteúdo da Aula</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Accordion Items -->
+                        <div class="border border-gray-200 rounded-lg">
+                            <button class="accordion-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus-visible" data-target="content-1">
+                                <span class="font-semibold">1. Baixando o WhatsApp</span>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="accordion-content px-6 pb-4" id="content-1">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-3">Passo a passo:</h4>
+                                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                            <li>Abra a <strong>Play Store</strong> (Android) ou <strong>App Store</strong> (iPhone)</li>
+                                            <li>Digite <strong>"WhatsApp"</strong> na busca</li>
+                                            <li>Toque em <strong>"Instalar"</strong></li>
+                                            <li>Aguarde o download terminar</li>
+                                            <li>Toque em <strong>"Abrir"</strong></li>
+                                        </ol>
+                                    </div>
+                                    <div>
+                                        <img src="https://images.unsplash.com/photo-1556656793-08538906a9f8?q=80&w=1000&auto=format&fit=crop" alt="Pessoa baixando WhatsApp na Play Store" class="rounded-lg shadow-md w-full" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg">
+                            <button class="accordion-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus-visible" data-target="content-2">
+                                <span class="font-semibold">2. Configurando sua Conta</span>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="accordion-content px-6 pb-4" id="content-2">
+                                <div class="space-y-4">
+                                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                        <div class="flex items-start">
+                                            <div class="text-yellow-600 mr-3 text-xl">⚠️</div>
+                                            <div>
+                                                <h4 class="font-semibold text-yellow-800 mb-2">Importante - Segurança</h4>
+                                                <p class="text-yellow-700">Use sempre seu número de telefone real. O WhatsApp enviará um código SMS para confirmar que é você mesmo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                        <li>Digite seu <strong>número de telefone</strong> com DDD</li>
+                                        <li>Toque em <strong>"Avançar"</strong></li>
+                                        <li>Aguarde receber o <strong>código SMS</strong></li>
+                                        <li>Digite o código recebido</li>
+                                        <li>Escolha uma <strong>foto de perfil</strong> (opcional)</li>
+                                        <li>Digite seu <strong>nome</strong></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg">
+                            <button class="accordion-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus-visible" data-target="content-3">
+                                <span class="font-semibold">3. Enviando sua Primeira Mensagem</span>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="accordion-content px-6 pb-4" id="content-3">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold mb-3">Como enviar:</h4>
+                                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                            <li>Toque no <strong>ícone de conversa</strong> (💬)</li>
+                                            <li>Escolha um <strong>contato</strong> da lista</li>
+                                            <li>Digite sua mensagem na <strong>caixa de texto</strong></li>
+                                            <li>Toque no <strong>botão enviar</strong> (✈️)</li>
+                                        </ol>
+                                        <div class="mt-4 p-3 bg-green-50 border border-green-200 rounded">
+                                            <p class="text-green-700 text-sm">💡 <strong>Dica:</strong> Você verá um ✓ quando a mensagem for enviada e ✓✓ quando for entregue!</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=1000&auto=format&fit=crop" alt="Interface do WhatsApp mostrando como enviar mensagem" class="rounded-lg shadow-md w-full" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Interactive Quiz -->
+                <section class="bg-white rounded-xl shadow-lg p-8 loading">
+                    <h2 class="text-2xl font-bold mb-6">🎯 Teste seus Conhecimentos</h2>
+                    
+                    <div class="space-y-6" id="quiz-container">
+                        <div class="quiz-question">
+                            <h3 class="text-lg font-semibold mb-4">1. Onde você encontra o WhatsApp para baixar?</h3>
+                            <div class="space-y-2">
+                                <label class="quiz-option flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <input type="radio" name="q1" value="a" class="mr-3">
+                                    <span>Na Play Store (Android) ou App Store (iPhone)</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <input type="radio" name="q1" value="b" class="mr-3">
+                                    <span>No Google Chrome</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <input type="radio" name="q1" value="c" class="mr-3">
+                                    <span>No Facebook</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h3 class="text-lg font-semibold mb-4">2. O que você precisa para criar uma conta no WhatsApp?</h3>
+                            <div class="space-y-2">
+                                <label class="quiz-option flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <input type="radio" name="q2" value="a" class="mr-3">
+                                    <span>Apenas um email</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <input type="radio" name="q2" value="b" class="mr-3">
+                                    <span>Um número de telefone válido</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <input type="radio" name="q2" value="c" class="mr-3">
+                                    <span>CPF e RG</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h3 class="text-lg font-semibold mb-4">3. O que significa quando você vê ✓✓ (dois risquinhos) na sua mensagem?</h3>
+                            <div class="space-y-2">
+                                <label class="quiz-option flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <input type="radio" name="q3" value="a" class="mr-3">
+                                    <span>A mensagem foi enviada</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <input type="radio" name="q3" value="b" class="mr-3">
+                                    <span>A mensagem foi entregue</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <input type="radio" name="q3" value="c" class="mr-3">
+                                    <span>A mensagem foi lida</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 focus-visible transition-colors font-semibold" id="check-quiz">
+                            ✅ Verificar Respostas
+                        </button>
+
+                        <div class="hidden bg-green-50 border border-green-200 rounded-lg p-4" id="quiz-result">
+                            <div class="flex items-center">
+                                <div class="text-green-600 mr-3 text-2xl">🎉</div>
+                                <div>
+                                    <h4 class="font-semibold text-green-800">Parabéns!</h4>
+                                    <p class="text-green-700" id="quiz-score">Você acertou todas as questões!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+                
+                <!-- Course Progress -->
+                <section class="bg-white rounded-xl shadow-lg p-6 loading">
+                    <h3 class="text-xl font-bold mb-4">📚 Módulos do Curso</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center p-3 bg-teal-50 border border-teal-200 rounded-lg">
+                            <div class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">✓</div>
+                            <div class="flex-1">
+                                <p class="font-medium text-teal-800">Módulo 1: Primeiros Passos</p>
+                                <p class="text-sm text-teal-600">Completado</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                            <div class="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</div>
+                            <div class="flex-1">
+                                <p class="font-medium text-yellow-800">Módulo 2: Conversas em Grupo</p>
+                                <p class="text-sm text-yellow-600">Em andamento</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center p-3 bg-gray-50 border border-gray-200 rounded-lg">
+                            <div class="w-8 h-8 bg-gray-400 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</div>
+                            <div class="flex-1">
+                                <p class="font-medium text-gray-600">Módulo 3: Segurança</p>
+                                <p class="text-sm text-gray-500">Bloqueado</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center p-3 bg-gray-50 border border-gray-200 rounded-lg">
+                            <div class="w-8 h-8 bg-gray-400 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">4</div>
+                            <div class="flex-1">
+                                <p class="font-medium text-gray-600">Módulo 4: Chamadas de Vídeo</p>
+                                <p class="text-sm text-gray-500">Bloqueado</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tasks -->
+                <section class="bg-white rounded-xl shadow-lg p-6 loading">
+                    <h3 class="text-xl font-bold mb-4">✅ Tarefas da Aula</h3>
+                    <div class="space-y-3">
+                        
+                        <div class="task-card bg-gray-50 p-4 rounded-lg" data-task="1">
+                            <div class="flex items-start">
+                                <input type="checkbox" class="task-checkbox mt-1 mr-3 w-5 h-5 text-teal-600 rounded focus:ring-teal-500" id="task-1">
+                                <div class="flex-1">
+                                    <label for="task-1" class="font-medium cursor-pointer">Baixar o WhatsApp</label>
+                                    <p class="text-sm text-gray-600 mt-1">Instale o WhatsApp no seu celular seguindo os passos da aula</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-card bg-gray-50 p-4 rounded-lg" data-task="2">
+                            <div class="flex items-start">
+                                <input type="checkbox" class="task-checkbox mt-1 mr-3 w-5 h-5 text-teal-600 rounded focus:ring-teal-500" id="task-2">
+                                <div class="flex-1">
+                                    <label for="task-2" class="font-medium cursor-pointer">Configurar sua conta</label>
+                                    <p class="text-sm text-gray-600 mt-1">Adicione seu número, foto de perfil e nome</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-card bg-gray-50 p-4 rounded-lg" data-task="3">
+                            <div class="flex items-start">
+                                <input type="checkbox" class="task-checkbox mt-1 mr-3 w-5 h-5 text-teal-600 rounded focus:ring-teal-500" id="task-3">
+                                <div class="flex-1">
+                                    <label for="task-3" class="font-medium cursor-pointer">Enviar primeira mensagem</label>
+                                    <p class="text-sm text-gray-600 mt-1">Mande uma mensagem para um familiar ou amigo</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-card bg-gray-50 p-4 rounded-lg" data-task="4">
+                            <div class="flex items-start">
+                                <input type="checkbox" class="task-checkbox mt-1 mr-3 w-5 h-5 text-teal-600 rounded focus:ring-teal-500" id="task-4">
+                                <div class="flex-1">
+                                    <label for="task-4" class="font-medium cursor-pointer">Fazer o quiz</label>
+                                    <p class="text-sm text-gray-600 mt-1">Complete o teste de conhecimentos acima</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-600">Progresso das Tarefas:</span>
+                            <span class="font-semibold text-teal-600" id="task-progress">0/4 completas</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Help & Support -->
+                <section class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl shadow-lg p-6 loading">
+                    <h3 class="text-xl font-bold mb-4 text-teal-800">💬 Precisa de Ajuda?</h3>
+                    <p class="text-teal-700 mb-4">Nossa equipe está aqui para te ajudar! Não tenha vergonha de perguntar.</p>
+                    
+                    <div class="space-y-3">
+                        <a href="https://wa.me/5515981364500?text=Olá! Estou fazendo o curso de WhatsApp e preciso de ajuda." target="_blank" class="flex items-center bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition-colors">
+                            <span class="mr-3">📱</span>
+                            <span class="font-medium">WhatsApp da Professora</span>
+                        </a>
+                        
+                        <button class="flex items-center bg-teal-600 text-white p-3 rounded-lg hover:bg-teal-700 transition-colors w-full" onclick="window.print()">
+                            <span class="mr-3">📄</span>
+                            <span class="font-medium">Imprimir Resumo</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Next Lesson Preview -->
+                <section class="bg-white rounded-xl shadow-lg p-6 loading">
+                    <h3 class="text-xl font-bold mb-4">⏭️ Próxima Aula</h3>
+                    <div class="bg-gradient-to-r from-amber-50 to-amber-100 rounded-lg p-4">
+                        <h4 class="font-semibold text-amber-800 mb-2">Grupos no WhatsApp</h4>
+                        <p class="text-amber-700 text-sm mb-3">Aprenda a criar e participar de grupos de família e amigos.</p>
+                        <button class="bg-amber-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition-colors" disabled>
+                            🔒 Complete esta aula primeiro
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16 no-print">
+        <div class="container mx-auto px-6 py-8">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-2">Conexão Sênior</h3>
+                <p class="text-gray-400 mb-4">Tecnologia com paciência e afeto</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="index.html" class="text-gray-400 hover:text-white">Voltar ao Site</a>
+                    <a href="https://wa.me/5515981364500" class="text-gray-400 hover:text-white">Contato</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Configurações
+        const CONFIG = {
+            totalTasks: 4,
+            quizAnswers: { q1: 'a', q2: 'b', q3: 'b' }
+        };
+
+        // Elementos DOM
+        const elements = {
+            progressBar: document.getElementById('progress-bar'),
+            progressText: document.getElementById('progress-text'),
+            taskProgress: document.getElementById('task-progress'),
+            quizContainer: document.getElementById('quiz-container'),
+            playVideo: document.getElementById('play-video')
+        };
+
+        // State management
+        let courseState = {
+            completedTasks: 0,
+            quizCompleted: false,
+            videoWatched: false
+        };
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            initLoadingAnimations();
+            initAccordion();
+            initTaskTracking();
+            initQuiz();
+            initVideoPlayer();
+            loadProgress();
+        });
+
+        // Loading animations
+        function initLoadingAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.loading').forEach(el => observer.observe(el));
+        }
+
+        // Accordion functionality
+        function initAccordion() {
+            document.querySelectorAll('.accordion-toggle').forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const content = document.getElementById(targetId);
+                    const icon = this.querySelector('svg');
+                    
+                    // Toggle content
+                    content.classList.toggle('open');
+                    
+                    // Animate icon
+                    if (content.classList.contains('open')) {
+                        icon.style.transform = 'rotate(180deg)';
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        icon.style.transform = 'rotate(0deg)';
+                        content.style.maxHeight = '0px';
+                    }
+                });
+            });
+        }
+
+        // Task tracking
+        function initTaskTracking() {
+            document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const taskCard = this.closest('.task-card');
+                    
+                    if (this.checked) {
+                        taskCard.classList.add('task-completed');
+                        courseState.completedTasks++;
+                    } else {
+                        taskCard.classList.remove('task-completed');
+                        courseState.completedTasks--;
+                    }
+                    
+                    updateProgress();
+                    saveProgress();
+                });
+            });
+        }
+
+        // Quiz functionality
+        function initQuiz() {
+            const checkButton = document.getElementById('check-quiz');
+            const resultDiv = document.getElementById('quiz-result');
+            const scoreElement = document.getElementById('quiz-score');
+
+            // Add click handlers to options
+            document.querySelectorAll('.quiz-option input').forEach(input => {
+                input.addEventListener('change', function() {
+                    // Remove previous selections in this question
+                    const questionContainer = this.closest('.quiz-question');
+                    questionContainer.querySelectorAll('.quiz-option').forEach(option => {
+                        option.classList.remove('selected');
+                    });
+                    
+                    // Mark this option as selected
+                    this.closest('.quiz-option').classList.add('selected');
+                });
+            });
+
+            checkButton.addEventListener('click', function() {
+                const answers = {};
+                let correctCount = 0;
+                const totalQuestions = Object.keys(CONFIG.quizAnswers).length;
+
+                // Collect answers
+                Object.keys(CONFIG.quizAnswers).forEach(questionName => {
+                    const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                    if (selectedOption) {
+                        answers[questionName] = selectedOption.value;
+                    }
+                });
+
+                // Check answers and provide visual feedback
+                Object.keys(CONFIG.quizAnswers).forEach(questionName => {
+                    const correctAnswer = CONFIG.quizAnswers[questionName];
+                    const userAnswer = answers[questionName];
+                    const questionContainer = document.querySelector(`input[name="${questionName}"]`).closest('.quiz-question');
+                    
+                    questionContainer.querySelectorAll('.quiz-option').forEach(option => {
+                        const input = option.querySelector('input');
+                        option.classList.remove('correct', 'incorrect', 'selected');
+                        
+                        if (input.value === correctAnswer) {
+                            option.classList.add('correct');
+                            if (userAnswer === correctAnswer) {
+                                correctCount++;
+                            }
+                        } else if (input.checked && input.value !== correctAnswer) {
+                            option.classList.add('incorrect');
+                        }
+                    });
+                });
+
+                // Show results
+                const percentage = Math.round((correctCount / totalQuestions) * 100);
+                scoreElement.textContent = `Você acertou ${correctCount} de ${totalQuestions} questões (${percentage}%)`;
+                resultDiv.classList.remove('hidden');
+
+                if (correctCount === totalQuestions) {
+                    courseState.quizCompleted = true;
+                    // Mark quiz task as completed
+                    const quizTask = document.getElementById('task-4');
+                    if (quizTask && !quizTask.checked) {
+                        quizTask.checked = true;
+                        quizTask.dispatchEvent(new Event('change'));
+                    }
+                }
+
+                // Disable further attempts
+                checkButton.disabled = true;
+                checkButton.textContent = '✅ Quiz Completado';
+                
+                updateProgress();
+                saveProgress();
+            });
+        }
+
+        // Video player simulation
+        function initVideoPlayer() {
+            elements.playVideo.addEventListener('click', function() {
+                // Simulate video watching
+                this.innerHTML = '⏸️ Pausar Aula';
+                this.disabled = true;
+                
+                // Simulate video progress
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 10;
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        this.innerHTML = '✅ Aula Assistida';
+                        courseState.videoWatched = true;
+                        updateProgress();
+                        saveProgress();
+                    }
+                }, 1000);
+            });
+        }
+
+        // Progress tracking
+        function updateProgress() {
+            // Update task progress
+            elements.taskProgress.textContent = `${courseState.completedTasks}/${CONFIG.totalTasks} completas`;
+            
+            // Calculate overall progress
+            let totalProgress = 0;
+            
+            // Tasks worth 60%
+            totalProgress += (courseState.completedTasks / CONFIG.totalTasks) * 60;
+            
+            // Quiz worth 25%
+            if (courseState.quizCompleted) totalProgress += 25;
+            
+            // Video worth 15%
+            if (courseState.videoWatched) totalProgress += 15;
+            
+            // Update progress bar and text
+            elements.progressBar.style.width = totalProgress + '%';
+            elements.progressText.textContent = Math.round(totalProgress) + '% concluído';
+            
+            // Unlock next lesson if 100% complete
+            if (totalProgress >= 100) {
+                unlockNextLesson();
+            }
+        }
+
+        function unlockNextLesson() {
+            const nextLessonButton = document.querySelector('button[disabled]');
+            if (nextLessonButton) {
+                nextLessonButton.disabled = false;
+                nextLessonButton.innerHTML = '➡️ Ir para Próxima Aula';
+                nextLessonButton.classList.remove('bg-amber-500', 'hover:bg-amber-600');
+                nextLessonButton.classList.add('bg-green-500', 'hover:bg-green-600');
+            }
+        }
+
+        // Save/Load progress
+        function saveProgress() {
+            localStorage.setItem('whatsapp-course-progress', JSON.stringify(courseState));
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('whatsapp-course-progress');
+            if (saved) {
+                courseState = { ...courseState, ...JSON.parse(saved) };
+                
+                // Restore UI state
+                document.querySelectorAll('.task-checkbox').forEach((checkbox, index) => {
+                    if (index < courseState.completedTasks) {
+                        checkbox.checked = true;
+                        checkbox.closest('.task-card').classList.add('task-completed');
+                    }
+                });
+                
+                if (courseState.videoWatched) {
+                    elements.playVideo.innerHTML = '✅ Aula Assistida';
+                    elements.playVideo.disabled = true;
+                }
+                
+                updateProgress();
+            }
+        }
+
+        // Print functionality
+        window.addEventListener('beforeprint', function() {
+            document.title = 'Curso WhatsApp - Resumo da Aula';
+        });
+
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+    </script>
+</body>
+</html>
